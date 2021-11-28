@@ -1,0 +1,17 @@
+:root {
+  --spacing: 12px 0;
+  --medium-large-text: 30px;
+  --subtitle-text: 24px;
+  --medium-text: 20px;
+  --body-text: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffecec;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+}
