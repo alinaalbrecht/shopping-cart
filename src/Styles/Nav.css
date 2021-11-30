@@ -55,6 +55,15 @@ nav {
   font-size: 28px;
 }
 
+/* Footer styles */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: absolute;
+}
+
 @media (max-width: 640px) {
   nav {
     margin: 5%;
@@ -92,7 +101,10 @@ nav {
   .tab {
     margin: 2% 0;
   }
-  .fa-shopping-basket {
+  .shopping-basket {
     font-size: 20px;
+  }
+  .footer {
+    flex-direction: column;
   }
 }
