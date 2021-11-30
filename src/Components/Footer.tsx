@@ -1,6 +1,6 @@
 import "../Styles/Nav.css";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer beige-area">
       <p>Jobs</p>

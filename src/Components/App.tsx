@@ -1,6 +1,6 @@
 import "../Styles/App.css";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App container">
       <img className="donut-hero" src="images/donut-hero.png" alt="" />
@@ -40,6 +40,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
