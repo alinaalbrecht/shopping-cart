@@ -22,3 +22,13 @@ body {
   font-family: "Raleway", sans-serif;
   margin: 0;
 }
+
+@media (max-width: 640px) {
+  :root {
+    --spacing: 12px 0;
+    --medium-large-text: 1.5em;
+    --subtitle-text: 1.2em;
+    --medium-text: 1em;
+    --body-text: 12px;
+  }
+}

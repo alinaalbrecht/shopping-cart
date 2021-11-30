@@ -17,8 +17,8 @@ const Nav = () => {
         <div className="tab">
           <Link to="/shop">Shop</Link>
         </div>
-        <div className="basket-quantity">
-          <FaShoppingBasket />
+        <div className="basket-quantity ">
+          <FaShoppingBasket className="shopping-basket" />
         </div>
       </div>
       <div className="hamburger-icon">

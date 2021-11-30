@@ -13,8 +13,8 @@ nav {
 
 .donut-logo {
   width: 6em;
-  margin-top: 1%;
-  margin-left: 2%;
+  margin-top: 40px;
+  margin-left: 40px;
 }
 
 .nav-tabs {
@@ -51,7 +51,7 @@ nav {
   color: #000;
 } */
 
-.fa-shopping-basket {
+.shopping-basket {
   font-size: 28px;
 }
 
