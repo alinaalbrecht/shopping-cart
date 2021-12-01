@@ -17,16 +17,9 @@ const DonutCard: React.FC<DonutCardProps> = (props) => {
             <div className="donut-image">
               <img src={donut.image} alt="" />
             </div>
-            <div className="donuts-added inactive" data-quantity="0"></div>
-            <p className="donut-name">{`${donut.name} ${donut.price}`}</p>
-            <div className="quantity-selector" data-quantity="0">
-              <div className="subtract">-</div>
-              <div className="quantity inactive">0</div>
-              <div className="add">+</div>
-            </div>
-            <button className="small-button" data-type="add-to-basket">
-              Add to Basket
-            </button>
+            <p className="donut-name">{donut.name}</p>
+            <p className="donut-price">{donut.price}</p>
+            <button className="small-button">Add to Basket</button>
           </div>
         );
       })}

@@ -2,15 +2,18 @@
 
 :root {
   --spacing: 12px 0;
-  --medium-large-text: 30px;
-  --subtitle-text: 24px;
-  --medium-text: 20px;
-  --body-text: 16px;
-}
 
-.inactive {
-  display: none !important;
-  transition: all 2s ease-out;
+  --border-radius: 8px;
+
+  --medium-large-text: 30px;
+  --medium-text: 20px;
+  --subtitle-text: 24px;
+  --body-text: 16px;
+
+  --light-pink: #ffecec;
+  --dark-pink: #f697cd;
+  --orange: #ce8c4f;
+  --beige: #fff8eb;
 }
 
 * {
@@ -18,9 +21,57 @@
 }
 
 body {
-  background-color: #ffecec;
+  background-color: var(--light-pink);
   font-family: "Raleway", sans-serif;
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--dark-pink);
+  font-weight: 900;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  margin: var(--spacing);
+}
+
+h2 {
+  font-size: var(--medium-large-text);
+  margin: var(--spacing);
+}
+
+p {
+  font-size: var(--body-text);
+  margin: var(--spacing);
+  text-align: center;
+}
+
+button {
+  border-radius: var(--border-radius);
+  border: 1px solid #000;
+  background-color: var(--orange);
+  color: #fff;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.beige-area {
+  background-color: var(--beige);
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin: 24px 0;
+  padding: 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 640px) {

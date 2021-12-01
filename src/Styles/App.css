@@ -1,31 +1,7 @@
 @import "../index.css";
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .donut-hero {
   width: 20em;
-  margin: var(--spacing);
-}
-
-h1,
-h2,
-h3 {
-  color: #f697cd;
-  font-weight: 900;
-  text-align: center;
-}
-
-h1 {
-  font-size: 40px;
-  margin: var(--spacing);
-}
-
-h2 {
-  font-size: var(--medium-large-text);
   margin: var(--spacing);
 }
 
@@ -36,36 +12,9 @@ h2 {
   width: 80%;
 }
 
-p {
-  font-size: var(--body-text);
-  margin: var(--spacing);
-  text-align: center;
-}
-
-button {
-  border-radius: 30px;
-  border: 1px solid #000;
-  background-color: #ce8c4f;
-  color: #fff;
-  margin: 12px;
-  cursor: pointer;
-}
-
 .cta {
   font-size: var(--medium-text);
   padding: 12px 70px;
-}
-
-.beige-area {
-  background-color: #fff8eb;
-  width: 100%;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  margin: 24px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
 }
 
 .locations {
@@ -78,8 +27,13 @@ button {
 .product-card {
   width: 30%;
   flex-grow: 0;
-  background-color: #ffecec;
+  background-color: var(--light-pink);
   border: 1px solid #000;
+  border-radius: var(--border-radius);
+}
+
+.product-card img {
+  border-radius: var(--border-radius);
 }
 
 .location-info {
