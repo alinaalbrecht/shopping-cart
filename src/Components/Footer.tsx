@@ -2,7 +2,7 @@ import "../Styles/Nav.css";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer beige-area">
+    <footer className="beige-area">
       <p>Jobs</p>
       <p>FAQ</p>
       <p>Privacy Policy</p>

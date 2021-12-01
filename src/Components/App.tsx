@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../Styles/App.css";
 
 const App: React.FC = () => {
@@ -6,9 +7,9 @@ const App: React.FC = () => {
       <img className="donut-hero" src="images/donut-hero.png" alt="" />
       <h1>The Donut Hole</h1>
       <p className="subtitle">visit us for a coffee and a donut</p>
-      <button className="cta" data-name="menu" data-type="tab">
-        Order Now
-      </button>
+      <Link to="/shop">
+        <button className="cta">Order Now</button>
+      </Link>
       <div className="beige-area container">
         <h2>Our Locations</h2>
         <div className="locations">
