@@ -3,7 +3,7 @@ import "../Styles/Nav.css";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 
-const Nav = () => {
+const Nav: React.FC = () => {
   return (
     <nav>
       <Link to="/">
