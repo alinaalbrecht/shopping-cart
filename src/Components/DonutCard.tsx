@@ -1,5 +1,3 @@
-import "../Styles/Shop.css";
-
 interface DonutCardProps {
   donuts: {
     name: string;

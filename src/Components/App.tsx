@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 import "../Styles/App.css";
+import LocationCard from "./LocationCard";
 
 const App: React.FC = () => {
+  const locations = [
+    {
+      image: "images/location-1.png",
+      location: "South-West",
+      address: "Akazienstr. 2410823 Berlin-Schöneberg",
+      phone: "Tel.: 030-54309-207",
+      openingHours: "Opening hours: 9:00-18:00 Mon-Sun",
+    },
+    {
+      image: "images/location-2.png",
+      location: "North East",
+      address: "Knaackstr. 41, 10435 Berlin–Prenzlauer Berg",
+      phone: "Tel.: 030-32608-406",
+      openingHours: "Opening hours: 9:00-18:00 Mon-Sun",
+    },
+  ];
   return (
     <div className="App container">
       <img className="donut-hero" src="images/donut-hero.png" alt="" />
@@ -13,30 +30,7 @@ const App: React.FC = () => {
       <div className="beige-area container">
         <h2>Our Locations</h2>
         <div className="locations">
-          <div className="product-card">
-            <img src="images/location-1.png" alt="" />
-            <div className="location-info">
-              <p className="large-black-text">South-West</p>
-              <p>
-                <i className="fas fa-map-marker-alt"></i>
-                Akazienstr. 2410823 Berlin-Schöneberg
-              </p>
-              <p>Tel.: 030-54309-207</p>
-              <p>Opening hours: 9:00-18:00 Mon-Sun</p>
-            </div>
-          </div>
-          <div className="product-card">
-            <img src="images/location-2.png" alt="" />
-            <div className="location-info">
-              <p className="large-black-text">North East</p>
-              <p>
-                <i className="fas fa-map-marker-alt"></i>
-                Knaackstr. 41, 10435 Berlin–Prenzlauer Berg
-              </p>
-              <p>Tel.: 030-32608-406</p>
-              <p>Opening hours: 9:00-18:00 Mon-Sun</p>
-            </div>
-          </div>
+          <LocationCard locations={locations} />
         </div>
       </div>
     </div>
