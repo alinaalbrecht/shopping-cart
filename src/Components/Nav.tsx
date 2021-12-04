@@ -3,7 +3,11 @@ import "../Styles/Nav.css";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 
-const Nav: React.FC = () => {
+interface NavProps {
+  handleToggleBasket: () => void;
+}
+
+const Nav: React.FC<NavProps> = (props) => {
   return (
     <nav>
       <Link to="/">
@@ -17,7 +21,7 @@ const Nav: React.FC = () => {
         <div className="tab">
           <Link to="/shop">Shop</Link>
         </div>
-        <div className="basket-quantity ">
+        <div className="basket-quantity" onClick={props.handleToggleBasket}>
           <FaShoppingBasket className="shopping-basket" />
         </div>
       </div>
