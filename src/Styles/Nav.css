@@ -39,17 +39,20 @@ nav {
   text-decoration: none;
 }
 
-/* .basket-quantity {
-  width: 80%;
-  height: 80%;
+.basket-nav {
+  position: relative;
+}
+
+.basket-quantity {
+  padding: 2px 6px;
   background-color: #f697cd;
   position: absolute;
-  bottom: 50%;
-  left: 50%;
+  top: -6px;
+  right: 16px;
   border-radius: 3px;
   text-align: center;
   color: #000;
-} */
+}
 
 .shopping-basket {
   font-size: 28px;
@@ -92,11 +95,6 @@ footer {
     text-align: center;
     padding: 60px 0 20px;
   }
-
-  /* .basket-quantity {
-    width: 20px;
-    height: 20px;
-  } */
 
   .tab {
     margin: 2% 0;

@@ -67,20 +67,28 @@ const Donuts: Donut[] = [
 const RouteSwitch = () => {
   const [basketIsOpen, setBasketIsOpen] = useState(false);
 
-  const [basket, setBasket] = useState<basketContents[]>([]);
+  const [basketContents, setBasketContents] = useState<basketContents[] | []>(
+    []
+  );
 
   const handleToggleBasket = () => {
     basketIsOpen ? setBasketIsOpen(false) : setBasketIsOpen(true);
   };
 
   const addToBasket = (index: number) => (event: React.MouseEvent) => {
-    setBasket((prevBasket) => [...prevBasket, Donuts[index]]);
+    setBasketContents((prevbasketContents) => [
+      ...prevbasketContents,
+      Donuts[index],
+    ]);
   };
 
   return (
     <BrowserRouter>
       {basketIsOpen && <Basket handleToggleBasket={handleToggleBasket} />}
-      <Nav handleToggleBasket={handleToggleBasket} />
+      <Nav
+        handleToggleBasket={handleToggleBasket}
+        basketContents={basketContents}
+      />
       <Routes>
         <Route path="/" element={<App />} />
         <Route
