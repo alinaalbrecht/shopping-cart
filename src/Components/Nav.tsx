@@ -5,6 +5,11 @@ import { FaBars } from "react-icons/fa";
 
 interface NavProps {
   handleToggleBasket: () => void;
+  basketContents: {
+    name: string;
+    price: string;
+    image: string;
+  }[];
 }
 
 const Nav: React.FC<NavProps> = (props) => {
@@ -21,7 +26,10 @@ const Nav: React.FC<NavProps> = (props) => {
         <div className="tab">
           <Link to="/shop">Shop</Link>
         </div>
-        <div className="basket-quantity" onClick={props.handleToggleBasket}>
+        <div className="basket-nav" onClick={props.handleToggleBasket}>
+          {props.basketContents.length > 0 && (
+            <div className="basket-quantity">{props.basketContents.length}</div>
+          )}
           <FaShoppingBasket className="shopping-basket" />
         </div>
       </div>
