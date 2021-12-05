@@ -3,7 +3,7 @@ import React from "react";
 interface DonutCardProps {
   donuts: {
     name: string;
-    price: string;
+    price: number;
     image: string;
     index: number;
   }[];
@@ -26,7 +26,7 @@ const DonutCard: React.FC<DonutCardProps> = (props) => {
               <img src={donut.image} alt="" />
             </div>
             <p className="donut-name">{donut.name}</p>
-            <p className="donut-price">{donut.price}</p>
+            <p className="donut-price">{donut.price}€</p>
             <button
               className="small-button"
               index={donut.index}

@@ -4,7 +4,7 @@ import DonutCard from "./DonutCard";
 interface ShopProps {
   donuts: {
     name: string;
-    price: string;
+    price: number;
     image: string;
     index: number;
   }[];

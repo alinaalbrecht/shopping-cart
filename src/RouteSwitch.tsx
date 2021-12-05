@@ -8,13 +8,13 @@ import Shop from "./Components/Shop";
 
 interface basketContents {
   name: string;
-  price: string;
+  price: number;
   image: string;
 }
 
 interface Donut {
   name: string;
-  price: string;
+  price: number;
   image: string;
   index: number;
 }
@@ -22,43 +22,43 @@ interface Donut {
 const Donuts: Donut[] = [
   {
     name: "Strawberry",
-    price: "2€",
+    price: 2,
     image: "images/donut-red.png",
     index: 0,
   },
   {
     name: "Chocolate",
-    price: "2€",
+    price: 2,
     image: "images/brown-covered.png",
     index: 1,
   },
   {
     name: "Peanut Butter Fudge",
-    price: "2€",
+    price: 2,
     image: "images/brown-streaks.png",
     index: 2,
   },
   {
     name: "Lemon",
-    price: "2€",
+    price: 2,
     image: "images/sprinkles-white.png",
     index: 3,
   },
   {
     name: "Cookies & Cream",
-    price: "2€",
+    price: 2,
     image: "images/black-white.png",
     index: 4,
   },
   {
     name: "Tangerine Swirl",
-    price: "2€",
+    price: 2,
     image: "images/yellow-white-streaks.png",
     index: 5,
   },
   {
     name: "Pink Frosting",
-    price: "2€",
+    price: 2,
     image: "images/pink.png",
     index: 6,
   },
