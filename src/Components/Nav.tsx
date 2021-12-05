@@ -7,7 +7,7 @@ interface NavProps {
   handleToggleBasket: () => void;
   basketContents: {
     name: string;
-    price: string;
+    price: number;
     image: string;
   }[];
 }
