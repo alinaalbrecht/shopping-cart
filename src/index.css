@@ -74,6 +74,10 @@ button {
   align-items: center;
 }
 
+.basket-open {
+  overflow: hidden;
+}
+
 @media (max-width: 640px) {
   :root {
     --spacing: 12px 0;

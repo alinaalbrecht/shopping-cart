@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./Components/App";
 import Basket from "./Components/Basket";
 import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import Shop from "./Components/Shop";
-
-interface basketContents {
-  name: string;
-  price: number;
-  image: string;
-}
 
 interface Donut {
   name: string;
@@ -67,9 +61,7 @@ const Donuts: Donut[] = [
 const RouteSwitch = () => {
   const [basketIsOpen, setBasketIsOpen] = useState(false);
 
-  const [basketContents, setBasketContents] = useState<basketContents[] | []>(
-    []
-  );
+  const [basketContents, setBasketContents] = useState<Donut[] | []>([]);
 
   const handleToggleBasket = () => {
     basketIsOpen ? setBasketIsOpen(false) : setBasketIsOpen(true);
@@ -82,9 +74,20 @@ const RouteSwitch = () => {
     ]);
   };
 
+  useEffect(() => {
+    basketIsOpen
+      ? document.body.classList.add("basket-open")
+      : document.body.classList.remove("basket-open");
+  }, [basketIsOpen]);
+
   return (
     <BrowserRouter>
-      {basketIsOpen && <Basket handleToggleBasket={handleToggleBasket} />}
+      {basketIsOpen && (
+        <Basket
+          handleToggleBasket={handleToggleBasket}
+          basketContents={basketContents}
+        />
+      )}
       <Nav
         handleToggleBasket={handleToggleBasket}
         basketContents={basketContents}

@@ -19,4 +19,75 @@
   width: 30%;
   height: 100%;
   background-color: var(--light-pink);
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  display: flex;
+}
+
+.basket-overview h1 {
+  padding-top: 80px;
+}
+
+.close-button {
+  padding: 4px;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.fa-times {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.basket-card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.basket-card p {
+  margin: unset;
+  text-align: left;
+}
+
+.subtract,
+.add {
+  border-radius: 100%;
+  background: var(--beige);
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-minus,
+.fa-plus {
+  font-size: 12px;
+}
+
+.donut-quantity-controls {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-self: center;
+  justify-content: center;
+}
+
+.quantity-input {
+  width: 50px;
+  border: 1px solid #000;
+  border-radius: var(--border-radius);
+  background: var(--beige);
 }
