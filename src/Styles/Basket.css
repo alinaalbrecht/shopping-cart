@@ -24,6 +24,7 @@
   align-items: center;
   overflow-y: scroll;
   display: flex;
+  padding-top: 30px;
 }
 
 .basket-overview h1 {

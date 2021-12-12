@@ -1,6 +1,7 @@
 import "../Styles/Basket.css";
 import { FaTimes } from "react-icons/fa";
 import DonutCardBasket from "./DonutCardBasket";
+import { ReactComponentElement, ReactElement } from "react";
 
 interface BasketProps {
   handleToggleBasket: () => void;
@@ -9,6 +10,7 @@ interface BasketProps {
     price: number;
     image: string;
     index: number;
+    quantity: number;
   }[];
 }
 
@@ -21,15 +23,25 @@ const Basket: React.FC<BasketProps> = (props) => {
           <FaTimes className="fa-times" />
         </button>
         <h1>Basket</h1>
-
-        <DonutCardBasket basketContents={props.basketContents} />
-        <h2>
-          Subtotal:
+        {props.basketContents.map((donut) => {
+          return (
+            <DonutCardBasket
+              index={donut.index}
+              image={donut.image}
+              name={donut.name}
+              price={donut.price}
+              quantity={donut.quantity}
+            />
+          );
+        })}
+        <h3>
+          Subtotal:&nbsp;
           {props.basketContents.reduce((amount, item): number => {
             return amount + item.price;
           }, 0)}
-        </h2>
-        <button>Checkout</button>
+          €
+        </h3>
+        <button className="cta">Checkout</button>
       </div>
     </div>
   );

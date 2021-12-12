@@ -13,6 +13,14 @@ interface Donut {
   index: number;
 }
 
+interface basketContents {
+  name: string;
+  price: number;
+  image: string;
+  index: number;
+  quantity: 1;
+}
+
 const Donuts: Donut[] = [
   {
     name: "Strawberry",
@@ -61,17 +69,50 @@ const Donuts: Donut[] = [
 const RouteSwitch = () => {
   const [basketIsOpen, setBasketIsOpen] = useState(false);
 
-  const [basketContents, setBasketContents] = useState<Donut[] | []>([]);
+  const [basketContents, setBasketContents] = useState<basketContents[] | []>(
+    []
+  );
 
   const handleToggleBasket = () => {
     basketIsOpen ? setBasketIsOpen(false) : setBasketIsOpen(true);
   };
 
   const addToBasket = (index: number) => (event: React.MouseEvent) => {
-    setBasketContents((prevbasketContents) => [
-      ...prevbasketContents,
-      Donuts[index],
-    ]);
+    let donutExists: boolean = false;
+
+    for (let i = 0; i < basketContents.length; i++) {
+      if (basketContents[i].name === Donuts[index].name) {
+        donutExists = true;
+      }
+    }
+
+    if (!donutExists) {
+      setBasketContents((prevbasketContents) => [
+        ...prevbasketContents,
+        { ...Donuts[index], quantity: 1 },
+      ]);
+      console.log(basketContents);
+    } else {
+      const updatedBasket = [];
+      console.log("triggered");
+      for (let i = 0; i < basketContents.length; i++) {
+        if (basketContents[i].index === index) {
+          basketContents[i].quantity += 1;
+          updatedBasket.push(basketContents[i]);
+        } else {
+          updatedBasket.push(basketContents[i]);
+        }
+      }
+
+      /*  basketContents.map((donut) => {
+        if (basketContents[i].index === index) {
+          donut.quantity += 1;
+        }
+        return
+      }); */
+      console.log(updatedBasket);
+      setBasketContents(updatedBasket);
+    }
   };
 
   useEffect(() => {
