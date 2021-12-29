@@ -9,6 +9,8 @@ interface NavProps {
     name: string;
     price: number;
     image: string;
+    index: number;
+    quantity: number;
   }[];
 }
 
@@ -28,7 +30,15 @@ const Nav: React.FC<NavProps> = (props) => {
         </div>
         <div className="basket-nav" onClick={props.handleToggleBasket}>
           {props.basketContents.length > 0 && (
-            <div className="basket-quantity">{props.basketContents.length}</div>
+            <div className="basket-quantity">
+              {
+                /* props.basketContents.length */
+                props.basketContents.reduce((amount, donut) => {
+                  console.log(amount);
+                  return (amount += donut.quantity);
+                }, 0)
+              }
+            </div>
           )}
           <FaShoppingBasket className="shopping-basket" />
         </div>

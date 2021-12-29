@@ -17,9 +17,8 @@
   margin: 0 0 24px 0;
 }
 
-.donut-image {
-  max-width: 120px;
-  height: 50%;
+.donut-image img {
+  width: 120px;
 }
 
 .quantity-selector {
@@ -27,18 +26,6 @@
   flex-direction: row;
   justify-content: space-between;
   width: 60%;
-}
-
-.add,
-.subtract {
-  border-radius: 100%;
-  background: var(--light-pink);
-  width: 30px;
-  height: 30px;
-  border: 1px solid #000;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
 }
 
 .quantity {
