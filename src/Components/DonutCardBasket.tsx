@@ -32,8 +32,8 @@ const DonutCardBasket: React.FC<DonutCardBasketProps> = (props) => {
         </div>
         <div className="donut-info">
           <p className="donut-name">{props.name}</p>
-          <p className="donut-price">{props.price}€</p>
-          <p className="donut-quantity">{props.quantity}</p>
+          <p className="donut-price">{props.price * props.quantity}€</p>
+          <p className="donut-quantity">quantity: {props.quantity}</p>
         </div>
         <div className="donut-quantity-controls">
           <div className="subtract">

@@ -17,8 +17,8 @@
   margin: 0 0 24px 0;
 }
 
-.donut-image {
-  max-width: 120px;
+.donut-image img {
+  width: 120px;
 }
 
 .quantity-selector {

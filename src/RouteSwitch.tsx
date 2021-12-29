@@ -35,7 +35,7 @@ const Donuts: Donut[] = [
     index: 1,
   },
   {
-    name: "Peanut Butter Fudge",
+    name: "Peanut Butter",
     price: 2,
     image: "images/brown-streaks.png",
     index: 2,

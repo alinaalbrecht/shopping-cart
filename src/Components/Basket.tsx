@@ -17,6 +17,7 @@ interface BasketProps {
 const Basket: React.FC<BasketProps> = (props) => {
   return (
     <div className="basket">
+      {console.log(props.basketContents)}
       <div className="overlay"></div>
       <div className="basket-overview">
         <button className="close-button" onClick={props.handleToggleBasket}>
@@ -37,7 +38,7 @@ const Basket: React.FC<BasketProps> = (props) => {
         <h3>
           Subtotal:&nbsp;
           {props.basketContents.reduce((amount, item): number => {
-            return amount + item.price;
+            return amount + item.price * item.quantity;
           }, 0)}
           €
         </h3>
