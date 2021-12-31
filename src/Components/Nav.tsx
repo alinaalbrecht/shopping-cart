@@ -34,7 +34,6 @@ const Nav: React.FC<NavProps> = (props) => {
               {
                 /* props.basketContents.length */
                 props.basketContents.reduce((amount, donut) => {
-                  console.log(amount);
                   return (amount += donut.quantity);
                 }, 0)
               }

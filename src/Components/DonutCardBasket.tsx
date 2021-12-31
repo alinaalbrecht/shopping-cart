@@ -3,18 +3,14 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 
 interface DonutCardBasketProps {
-  basketContents?: {
-    name: string;
-    price: number;
-    image: string;
-    index: number;
-  }[];
   name: string;
   price: number;
   image: string;
   index: number;
   quantity: number;
-  /* addToBasket: (index: number) => React.MouseEventHandler; */
+  updateBasket: (index: number, increment: string) => React.MouseEventHandler;
+
+  handleInputQuantityChange: (index: number) => React.ChangeEventHandler;
 }
 declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -37,10 +33,17 @@ const DonutCardBasket: React.FC<DonutCardBasketProps> = (props) => {
         </div>
         <div className="donut-quantity-controls">
           <div className="subtract">
-            <FaMinus className="fa-minus" />
+            <FaMinus
+              className="fa-minus"
+              onClick={props.updateBasket(props.index, "subtract")}
+            />
           </div>
-          <input className="quantity-input" />
-          <div className="add">
+          <input
+            className="quantity-input"
+            value={props.quantity !== 0 ? props.quantity : ""}
+            onChange={props.handleInputQuantityChange(props.index)}
+          />
+          <div className="add" onClick={props.updateBasket(props.index, "add")}>
             <FaPlus className="fa-plus" />
           </div>
         </div>

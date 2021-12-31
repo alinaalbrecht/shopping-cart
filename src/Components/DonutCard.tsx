@@ -7,7 +7,7 @@ interface DonutCardProps {
     image: string;
     index: number;
   }[];
-  addToBasket: (index: number) => React.MouseEventHandler;
+  updateBasket: (index: number, increment: string) => React.MouseEventHandler;
 }
 declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -30,7 +30,7 @@ const DonutCard: React.FC<DonutCardProps> = (props) => {
             <button
               className="small-button"
               index={donut.index}
-              onClick={props.addToBasket(donut.index)}
+              onClick={props.updateBasket(donut.index, "add")}
             >
               Add to Basket
             </button>
