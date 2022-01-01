@@ -1,6 +1,7 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 interface DonutCardBasketProps {
   name: string;
@@ -9,6 +10,7 @@ interface DonutCardBasketProps {
   index: number;
   quantity: number;
   updateBasket: (index: number, increment: string) => React.MouseEventHandler;
+  removeFromBasket: (index: number) => React.MouseEventHandler;
 
   handleInputQuantityChange: (index: number) => React.ChangeEventHandler;
 }
@@ -45,6 +47,9 @@ const DonutCardBasket: React.FC<DonutCardBasketProps> = (props) => {
           />
           <div className="add" onClick={props.updateBasket(props.index, "add")}>
             <FaPlus className="fa-plus" />
+          </div>
+          <div className="trash" onClick={props.removeFromBasket(props.index)}>
+            <FaTrash />
           </div>
         </div>
       </div>

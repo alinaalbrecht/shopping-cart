@@ -48,7 +48,6 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
-
   flex-wrap: wrap;
   width: 70%;
 }
@@ -67,6 +66,11 @@
 .basket-card p {
   margin: unset;
   text-align: left;
+}
+
+.donut-item.basket-card .donut-image img {
+  width: 100px;
+  height: 100px;
 }
 
 .subtract,
@@ -103,4 +107,10 @@
   border-radius: var(--border-radius);
   background: var(--beige);
   text-align: center;
+}
+
+.trash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -31,12 +31,9 @@ const Nav: React.FC<NavProps> = (props) => {
         <div className="basket-nav" onClick={props.handleToggleBasket}>
           {props.basketContents.length > 0 && (
             <div className="basket-quantity">
-              {
-                /* props.basketContents.length */
-                props.basketContents.reduce((amount, donut) => {
-                  return (amount += donut.quantity);
-                }, 0)
-              }
+              {props.basketContents.reduce((amount, donut) => {
+                return (amount += donut.quantity);
+              }, 0)}
             </div>
           )}
           <FaShoppingBasket className="shopping-basket" />

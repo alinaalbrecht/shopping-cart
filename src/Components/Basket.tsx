@@ -7,6 +7,7 @@ interface BasketProps {
   handleToggleBasket: () => void;
   handleInputQuantityChange: (index: number) => React.ChangeEventHandler;
   updateBasket: (index: number, increment: string) => React.MouseEventHandler;
+  removeFromBasket: (index: number) => React.MouseEventHandler;
   basketContents: {
     name: string;
     price: number;
@@ -35,6 +36,7 @@ const Basket: React.FC<BasketProps> = (props) => {
               quantity={donut.quantity}
               handleInputQuantityChange={props.handleInputQuantityChange}
               updateBasket={props.updateBasket}
+              removeFromBasket={props.removeFromBasket}
             />
           );
         })}

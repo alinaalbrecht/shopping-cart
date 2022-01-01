@@ -139,6 +139,18 @@ const RouteSwitch = () => {
       setBasketContents(updatedBasket);
     };
 
+  const removeFromBasket =
+    (index: number) =>
+    (event: React.MouseEvent): any => {
+      const updatedBasket = [];
+      for (let i = 0; i < basketContents.length; i++) {
+        if (basketContents[i].index !== index) {
+          updatedBasket.push(basketContents[i]);
+        }
+      }
+      setBasketContents(updatedBasket);
+    };
+
   useEffect(() => {
     basketIsOpen
       ? document.body.classList.add("basket-open")
@@ -153,6 +165,7 @@ const RouteSwitch = () => {
           basketContents={basketContents}
           handleInputQuantityChange={handleInputQuantityChange}
           updateBasket={updateBasket}
+          removeFromBasket={removeFromBasket}
         />
       )}
       <Nav
