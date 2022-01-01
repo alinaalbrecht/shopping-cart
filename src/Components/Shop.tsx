@@ -8,7 +8,7 @@ interface ShopProps {
     image: string;
     index: number;
   }[];
-  addToBasket: (index: number) => React.MouseEventHandler;
+  updateBasket: (index: number, increment: string) => React.MouseEventHandler;
 }
 const Shop: React.FC<ShopProps> = (props) => {
   return (
@@ -19,7 +19,7 @@ const Shop: React.FC<ShopProps> = (props) => {
         treats
       </p>
       <div className="product-grid">
-        <DonutCard donuts={props.donuts} addToBasket={props.addToBasket} />
+        <DonutCard donuts={props.donuts} updateBasket={props.updateBasket} />
       </div>
     </div>
   );

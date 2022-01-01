@@ -1,10 +1,13 @@
 import "../Styles/Basket.css";
 import { FaTimes } from "react-icons/fa";
 import DonutCardBasket from "./DonutCardBasket";
-import { ReactComponentElement, ReactElement } from "react";
+import React from "react";
 
 interface BasketProps {
   handleToggleBasket: () => void;
+  handleInputQuantityChange: (index: number) => React.ChangeEventHandler;
+  updateBasket: (index: number, increment: string) => React.MouseEventHandler;
+  removeFromBasket: (index: number) => React.MouseEventHandler;
   basketContents: {
     name: string;
     price: number;
@@ -17,7 +20,6 @@ interface BasketProps {
 const Basket: React.FC<BasketProps> = (props) => {
   return (
     <div className="basket">
-      {console.log(props.basketContents)}
       <div className="overlay"></div>
       <div className="basket-overview">
         <button className="close-button" onClick={props.handleToggleBasket}>
@@ -32,6 +34,9 @@ const Basket: React.FC<BasketProps> = (props) => {
               name={donut.name}
               price={donut.price}
               quantity={donut.quantity}
+              handleInputQuantityChange={props.handleInputQuantityChange}
+              updateBasket={props.updateBasket}
+              removeFromBasket={props.removeFromBasket}
             />
           );
         })}

@@ -18,7 +18,7 @@ interface basketContents {
   price: number;
   image: string;
   index: number;
-  quantity: 1;
+  quantity: number;
 }
 
 const Donuts: Donut[] = [
@@ -77,43 +77,79 @@ const RouteSwitch = () => {
     basketIsOpen ? setBasketIsOpen(false) : setBasketIsOpen(true);
   };
 
-  const addToBasket = (index: number) => (event: React.MouseEvent) => {
-    let donutExists: boolean = false;
-
-    for (let i = 0; i < basketContents.length; i++) {
-      if (basketContents[i].name === Donuts[index].name) {
-        donutExists = true;
+  const updateBasket =
+    (index: number, increment: string) => (event: React.MouseEvent) => {
+      let donutExists: boolean = false;
+      let increase = 0;
+      if (increment === "add") {
+        increase++;
+      } else {
+        increase--;
       }
-    }
 
-    if (!donutExists) {
-      setBasketContents((prevbasketContents) => [
-        ...prevbasketContents,
-        { ...Donuts[index], quantity: 1 },
-      ]);
-      console.log(basketContents);
-    } else {
+      // checks if donut flavor already exists in basket
+      for (let i = 0; i < basketContents.length; i++) {
+        if (basketContents[i].name === Donuts[index].name) {
+          donutExists = true;
+        }
+      }
+
+      // if donut does not already exist in basket it is added to the basket
+      if (!donutExists) {
+        setBasketContents((prevbasketContents) => [
+          ...prevbasketContents,
+          { ...Donuts[index], quantity: 1 },
+        ]);
+      }
+      // if donut does already exist in basket its quantity is increased by one
+      else {
+        const updatedBasket = [];
+
+        for (let i = 0; i < basketContents.length; i++) {
+          if (basketContents[i].index === index) {
+            basketContents[i].quantity += increase;
+            updatedBasket.push(basketContents[i]);
+          } else {
+            updatedBasket.push(basketContents[i]);
+          }
+        }
+
+        setBasketContents(updatedBasket);
+      }
+    };
+
+  const handleInputQuantityChange =
+    (index: number) =>
+    (event: React.ChangeEvent): any => {
+      let newValue: number | string = parseInt(
+        (event.target as HTMLInputElement).value
+      );
+      if (!newValue) {
+        newValue = 0;
+      }
       const updatedBasket = [];
-      console.log("triggered");
       for (let i = 0; i < basketContents.length; i++) {
         if (basketContents[i].index === index) {
-          basketContents[i].quantity += 1;
+          basketContents[i].quantity = newValue;
           updatedBasket.push(basketContents[i]);
         } else {
           updatedBasket.push(basketContents[i]);
         }
       }
-
-      /*  basketContents.map((donut) => {
-        if (basketContents[i].index === index) {
-          donut.quantity += 1;
-        }
-        return
-      }); */
-      console.log(updatedBasket);
       setBasketContents(updatedBasket);
-    }
-  };
+    };
+
+  const removeFromBasket =
+    (index: number) =>
+    (event: React.MouseEvent): any => {
+      const updatedBasket = [];
+      for (let i = 0; i < basketContents.length; i++) {
+        if (basketContents[i].index !== index) {
+          updatedBasket.push(basketContents[i]);
+        }
+      }
+      setBasketContents(updatedBasket);
+    };
 
   useEffect(() => {
     basketIsOpen
@@ -127,6 +163,9 @@ const RouteSwitch = () => {
         <Basket
           handleToggleBasket={handleToggleBasket}
           basketContents={basketContents}
+          handleInputQuantityChange={handleInputQuantityChange}
+          updateBasket={updateBasket}
+          removeFromBasket={removeFromBasket}
         />
       )}
       <Nav
@@ -137,7 +176,7 @@ const RouteSwitch = () => {
         <Route path="/" element={<App />} />
         <Route
           path="/shop"
-          element={<Shop donuts={Donuts} addToBasket={addToBasket} />}
+          element={<Shop donuts={Donuts} updateBasket={updateBasket} />}
         />
       </Routes>
       <Footer />
